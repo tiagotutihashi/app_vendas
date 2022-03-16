@@ -6,12 +6,11 @@ import {
   productGetFailuretPayload,
 } from "../../ducks/product/actions";
 import { PRODUCT_GET_REQUEST } from "../../ducks/product/actionTypes";
-import Product from "../../../interfaces/product";
+import { ProductGetSuccessPayload } from "../../ducks/product/types";
 
 function* fetchTodoSaga() {
   try {
-    // @ts-ignore
-    const response = yield call(api.get, "/products");
+    const response: ProductGetSuccessPayload = yield call(api.get, "/products");
     yield put(
       productGetSuccessPayload({
         data: response.data,
