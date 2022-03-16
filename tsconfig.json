@@ -2,6 +2,18 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "jsx": "react",
-    "strict": true
-  }
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "paths": {
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@contex/*": ["./src/contex/*"],
+      "@navigation/*": ["./src/navigation/*"],
+      "@ducks/*": ["./src/store/ducks/*"],
+      "@sagas/*": ["./src/store/sagas/*"],
+      "@store/*": ["./src/store/*"],
+      "@utils/*": ["./src/utils/*"],
+    }
+  },
 }

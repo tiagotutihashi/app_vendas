@@ -1,7 +1,10 @@
 import api from "../../../utils/api";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 
-import { productGetSuccessPayload, productGetFailuretPayload  } from "../../ducks/product/actions";
+import {
+  productGetSuccessPayload,
+  productGetFailuretPayload,
+} from "../../ducks/product/actions";
 import { PRODUCT_GET_REQUEST } from "../../ducks/product/actionTypes";
 import Product from "../../../interfaces/product";
 
@@ -10,16 +13,16 @@ function* fetchTodoSaga() {
     // @ts-ignore
     const response = yield call(api.get, "/products");
     yield put(
-        productGetSuccessPayload({
+      productGetSuccessPayload({
         data: response.data,
-      })
+      }),
     );
   } catch (e) {
     yield put(
-        productGetFailuretPayload({
+      productGetFailuretPayload({
         //@ts-ignore
         error: e.message,
-      })
+      }),
     );
   }
 }
